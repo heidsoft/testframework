@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试框架</title>
+</head>
+<body>
+    <h1>测试蓝鲸</h1>
+    <h1>${a}</h1>
+    % for i in b:
+        % if i == 1:
+            <h1 style="color:red;">${i}</h1>
+        % else:
+              <h1 style="color:green;">${i}</h1>
+        % endif
+    % endfor
+
+    <form action="/">
+        <input name="test" placeholder="测试"/>
+        <button type="submit">提交测试</button>
+    </form>
+</body>
+</html>
