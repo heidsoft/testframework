@@ -135,3 +135,8 @@ Traceback (most recent call last):
 ImportError: No module named requests
 
 ```
+
+##mysql 动态链接库
+```
+sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
+```
