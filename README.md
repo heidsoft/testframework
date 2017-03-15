@@ -149,3 +149,13 @@ python  manage.py  celery  worker  --settings=settings
 周期性任务还需要启动celery调度命令：
 python  manage.py  celerybeat --settings=settings
 ```
+
+#何为任务队列？
+```
+任务队列是一种在线程或机器间分发任务的机制。
+
+消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。
+
+Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程。
+
+```
