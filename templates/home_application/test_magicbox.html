@@ -79,7 +79,7 @@
                 <div class="form-group clearfix">
                     <div class="col-sm-9 col-sm-offset-3">
                         <button type="button" class="king-btn mr10  king-success" id="test_submit">提交</button>
-                        <button type="button" class="king-btn king-default ">取消</button>
+                        <button type="button" class="king-btn mr10  king-success" id="exe_task">执行任务</button>
                     </div>
                 </div>
             </form>
@@ -134,6 +134,12 @@
                     console.log(test_name );
                     console.log(test_pass);
                     $.post("${SITE_URL}useradd/",{"name":test_name,"paas":test_pass},function (response) {
+                        console.log(response);
+                    },"json");
+                });
+                 $("#exe_task").click(function () {
+                    console.log("exe_task....");
+                    $.post("${SITE_URL}execute/task",{},function (response) {
                         console.log(response);
                     },"json");
                 });

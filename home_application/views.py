@@ -2,6 +2,7 @@
 
 from common.mymako import render_mako_context,render_json
 from home_application.models import NgUser
+from home_application.ng_task import ngTask
 
 def home(request):
     """
@@ -73,3 +74,12 @@ def userlist(request):
 
 
     return render_json({"success":1})
+
+def executeTask(request):
+    """
+    执行task
+    """
+    pass
+    print '执行task....'
+    ngTask(1,2)
+    return render_json({"success":True})

@@ -8,4 +8,5 @@ urlpatterns = patterns('home_application.views',
     (r'^contactus/$', 'contactus'),
     (r'^useradd', 'useradd'),
     (r'^userlist', 'userlist'),
+    (r'^execute/task$', 'executeTask'),
 )
