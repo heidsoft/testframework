@@ -43,6 +43,7 @@ class NgUser(models.Model):
 
     #对象序列化
     def __unicode__(self):
+        #字典转为json字符串
         return json.dumps({"name":self.name,"age":self.age})
 
     #自定义表名称
