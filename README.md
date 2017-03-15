@@ -140,3 +140,12 @@ ImportError: No module named requests
 ```
 sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
 ```
+
+##周期性任务执行
+```
+启动celery命令：
+python  manage.py  celery  worker  --settings=settings
+
+周期性任务还需要启动celery调度命令：
+python  manage.py  celerybeat --settings=settings
+```
