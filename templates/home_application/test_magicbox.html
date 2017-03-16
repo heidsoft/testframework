@@ -24,12 +24,17 @@
     <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
     <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
     <script src="https://magicbox.bkclouds.cc/static_api/v3/bk/js/bk.js"></script>
+
+
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/select2-3.5.2/select2.css" rel="stylesheet">
+<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/select2-3.5.2/select2.js"></script>
+
     <!-- 数据埋点统计 -->
     <script src="https://magicbox.bkclouds.cc/static_api/analysis.js"></script>
     <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
     <!--[if lt IE 9]><script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/html5shiv.min.js"></script>
 <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/respond.min.js"></script><![endif]-->
-      <script src="${STATIC_URL}/js/csrftoken.js"></script>
+    <script src="${STATIC_URL}js/csrftoken.js"></script>
 </head>
 
 <body class="bg-white" data-bg-color="bg-white">
@@ -69,82 +74,100 @@
                 <div class="form-group clearfix ">
                     <label class="col-sm-3 control-label bk-lh30 pt0">参数：</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control bk-valign-top" id="test_name" placeholder="提示信息"> </div>
+                        <div class="plugin3_demo" id="select_hosts" style="display:inline-block;">
+                            <!-- select2 通过javascript start -->
+                            <input type="hidden" class="select2_box" style="width:300px;">
+                            <!-- select2 通过javascript end -->
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group clearfix ">
                     <label class="col-sm-3 control-label bk-lh30 pt0">参数：</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control bk-valign-top" id="test_pass" placeholder="提示信息"> </div>
+                        <div class="plugin3_demo" id="select_tasks" style="display:inline-block;">
+                            <!-- select2 通过javascript start -->
+                            <input type="hidden" class="select2_box" style="width:300px;">
+                            <!-- select2 通过javascript end -->
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group clearfix">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="button" class="king-btn mr10  king-success" id="test_submit">提交</button>
-                        <button type="button" class="king-btn mr10  king-success" id="exe_task">执行任务</button>
+                        <button type="button" class="king-btn mr10  king-success" id="exe_task">提交</button>
+                        <button type="button" class="king-btn king-default ">取消</button>
                     </div>
                 </div>
             </form>
-            <table class="table mb0 pr15 ranger-box ">
-                <thead>
-                    <tr>
-                        <th style="width: 100px;">#</th>
-                        <th style="width: 20%;">名称</th>
-                        <th style="width: 20%;">年龄</th>
-                        <th style="width: 20%;">密码</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    % for index,user in enumerate(users):
-                    <tr>
-                        <td style="width: 100px;">${index}</td>
-                        <td style="width: 20%;">${user.name}</td>
-                        <td style="width: 20%;">${user.age}</td>
-                        <td style="width: 20%;">${user.password}</td>
-                    </tr>
-                    % endfor
-                </tbody>
-            </table>
-            <!-- 设置面板Start -->
-            <template id="header_tpl_1489475360027">
-                <tr>
-                    <th style="width: 100px;">#index#</th>
-                    <th style="width: 20%;">#task#</th>
-                    <th style="width: 20%;">#progress#</th>
-                    <th style="width: 20%;">#host#</th>
-                    <th>#date#</th>
-                </tr>
-            </template>
-            <template id="tpl_1489475360027">
-                <tr>
-                    <td style="width: 100px;">#index#</td>
-                    <td style="width: 20%;">#columnName1#</td>
-                    <td style="width: 20%;">#columnName2#</td>
-                    <td style="width: 20%;">#columnName3#</td>
-                    <td>#columnName4#</td>
-                </tr>
-            </template>
-            <!-- 设置面板End -->
         </div>
     </div>
-    <script>
-        $(function(){
-                $("#test_submit").click(function () {
-                    console.log("click....");
-                    test_name = $("#test_name").val();
-                    test_pass = $("#test_pass").val();
-                    console.log(test_name );
-                    console.log(test_pass);
-                    $.post("${SITE_URL}useradd/",{"name":test_name,"paas":test_pass},function (response) {
-                        console.log(response);
-                    },"json");
-                });
-                 $("#exe_task").click(function () {
-                    console.log("exe_task....");
-                    $.post("${SITE_URL}execute/task",{},function (response) {
-                        console.log(response);
-                    },"json");
-                });
-            });
-    </script>
 </body>
+
+<script type="application/javascript">
+    $(document).ready(function(){
+                 // 数据格式：{"results":[{ "id": 0, "text": "奥迪" }, { "id": 1, "text": "奔驰" }, { "id": 2, "text": "宝马" }]}
+                 $("#select_hosts .select2_box").select2({
+                     ajax: {
+                        url: "${SITE_URL}hosts",
+                        cache: false,
+                        //对返回的数据进行处理
+                        results: function(response){
+                            console.log(response);
+                            if(response == undefined || response == null){
+                                return {"results":[]};
+                            }else{
+                               var hosts = response.data;
+                               var select_hosts = [];
+                               for(index in hosts){
+                                   select_hosts.push({
+                                       id:hosts[index].HostID,
+                                       text:hosts[index].InnerIP
+                                   });
+                               }
+                               return {"results":select_hosts};
+                            }
+                        }
+                    }
+                 });
+
+
+                $("#select_tasks .select2_box").select2({
+
+                    ajax: {
+                        url: "${SITE_URL}jobs",
+                        cache: false,
+                        //对返回的数据进行处理
+                        results: function(response){
+                            console.log(response);
+                            if(response == undefined || response == null){
+                                return {"results":[]};
+                            }else{
+                               var tasks = response.data;
+                               var select_tasks = [];
+                               for(index in tasks){
+                                   select_tasks.push({
+                                       id:tasks[index].id,
+                                       text:tasks[index].name
+                                   });
+                               }
+                               return {"results":select_tasks};
+                            }
+                        }
+                    }
+
+                });
+
+                $("#exe_task").click(function () {
+                    console.log("exe_task....");
+                    var hostIp = $("#select_hosts .select2_box").select2('data').text
+                    var taskid = $("#select_tasks .select2_box").select2('data').id;
+                    console.log(hostIp);
+                    console.log(taskid);
+                    $.post("${SITE_URL}execute/job",{"host":hostIp,"task":taskid},function (response) {
+                        console.log(response);
+                    },"json");
+                });
+    });
+
+</script>
 
 </html>

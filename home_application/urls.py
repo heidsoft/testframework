@@ -9,4 +9,7 @@ urlpatterns = patterns('home_application.views',
     (r'^useradd', 'useradd'),
     (r'^userlist', 'userlist'),
     (r'^execute/task$', 'executeTask'),
+    (r'^execute/job$', 'executeJob'),
+    (r'^hosts$', 'getHosts'),
+    (r'^jobs', 'getJobs'),
 )
