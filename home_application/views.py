@@ -3,6 +3,7 @@
 from common.mymako import render_mako_context,render_json
 from home_application.models import NgUser
 from home_application.ng_task import ngTask,ngTask2
+from blueking.component.shortcuts import get_client_by_request
 
 def home(request):
     """
@@ -10,6 +11,15 @@ def home(request):
     """
     #ngTask.delay(4,4)
     allUser = NgUser.objects.all()
+
+    # 默认从django settings中获取APP认证信息：应用ID和应用TOKEN
+    # 默认从django request中获取用户登录态bk_token
+    client = get_client_by_request(request)
+    # 组件参数
+    kwargs = {'ApplicationID': 3}
+    result = client.opsdemo.listHost(kwargs)
+    print result
+
     return render_mako_context(request, '/home_application/test_magicbox.html',{"users":allUser})
 
 
