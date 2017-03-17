@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from common.mymako import render_mako_context,render_json
-from home_application.models import NgUser
+from home_application.models import NgUser,NgTask
 from home_application.ng_task import ngTask,ngTask2
 from blueking.component.shortcuts import get_client_by_request
 
@@ -206,6 +206,8 @@ def executeJob(request):
 
     print "查询task 返回结果是"
     print  get_task_result_response
+
+    #NgTask(taskName="",taskResult=get_task_result_response)
 
 
     get_task_ip_log_request = {

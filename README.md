@@ -159,3 +159,13 @@ python  manage.py  celerybeat --settings=settings
 Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程。
 
 ```
+
+#数据建模
+```
+生成模型变更
+python manage.py makemigrations
+
+执行模型变更
+python manage.py migrate
+
+```

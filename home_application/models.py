@@ -49,3 +49,17 @@ class NgUser(models.Model):
     #自定义表名称
     class Meta:
         db_table = 'ng_user'
+
+class NgTask(models.Model):
+    taskName = models.CharField(max_length=127)
+    taskResult =  models.CharField(max_length=127)
+    taskFinishTime = models.DateField()
+
+    #对象序列化
+    def __unicode__(self):
+        #字典转为json字符串
+        return json.dumps({"name":self.taskName,"result":self.taskResult,"time":self.taskFinishTime})
+
+    #自定义表名称
+    class Meta:
+        db_table = 'ng_task'
