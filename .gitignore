@@ -157,3 +157,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
+blueking/*.pyc
+conf/*.pyc
+home_application/*.pyc
+common/*.pyc
+*.pyc

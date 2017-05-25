@@ -8,7 +8,7 @@ APP_TOKEN = '497783ec-e900-4b20-ad51-b7af5ae9d999'
 BK_PAAS_HOST = 'http://paas.bking.com'
 ```
 
-##启动错误
+## 启动错误
 ```
 
 (dev-djdemo) ➜  testframework git:(master) ✗ python manage.py runserver
@@ -52,7 +52,7 @@ django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: dlope
 
 ```
 
-##没有执行migrate
+## 没有执行migrate
 ```
 (dev-djdemo) ➜  testframework git:(master) ✗ python manage.py runserver
 Performing system checks...
@@ -136,12 +136,12 @@ ImportError: No module named requests
 
 ```
 
-##mysql 动态链接库
+## mysql 动态链接库
 ```
 sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
 ```
 
-##周期性任务执行
+## 周期性任务执行
 ```
 启动celery命令：
 python  manage.py  celery  worker  --settings=settings
@@ -150,7 +150,7 @@ python  manage.py  celery  worker  --settings=settings
 python  manage.py  celerybeat --settings=settings
 ```
 
-#何为任务队列？
+# 何为任务队列？
 ```
 任务队列是一种在线程或机器间分发任务的机制。
 
@@ -160,7 +160,7 @@ Celery 用消息通信，通常使用中间人（Broker）在客户端和职程�
 
 ```
 
-#数据建模
+# 数据建模
 ```
 生成模型变更
 python manage.py makemigrations
@@ -168,4 +168,9 @@ python manage.py makemigrations
 执行模型变更
 python manage.py migrate
 
+```
+
+# 测试
+```
+ python manage.py test home_application.tests.SimpleTest.test_get_all_user
 ```

@@ -1,5 +1,6 @@
 import os
 from conf.default import *
+
 """
 You can load different configurations depending on yourcurrent environment.
 

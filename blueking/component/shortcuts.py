@@ -13,8 +13,8 @@ __all__ = [
 
 
 def get_client_by_request(request, **kwargs):
-    """根据当前请求返回一个client
-
+    """
+    根据当前请求返回一个client
     :param request: 一个django request实例
     :returns: 一个初始化好的ComponentClint对象
     """
@@ -32,8 +32,8 @@ def get_client_by_request(request, **kwargs):
 
 
 def get_client_by_user(user, **kwargs):
-    """根据user实例返回一个client
-
+    """
+    根据user实例返回一个client
     :param user: User实例或者User.username数据
     :returns: 一个初始化好的ComponentClint对象
     """
