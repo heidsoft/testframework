@@ -18,7 +18,7 @@ def dashboard(request):
     :param request: 
     :return: 
     """
-    return render_mako_context(request, "/home_application／dashboard.html")
+    return render_mako_context(request, "/home_application/dashboard.html")
 
 """返回主机查询页面"""
 def queryHost(request):
