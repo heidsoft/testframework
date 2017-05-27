@@ -13,8 +13,12 @@ MY_APP_HOME = "/home_application／"
 
 """返回API仪表盘页面"""
 def dashboard(request):
-    pageView = "dashboard.html"
-    return render_mako_context(request, "".join((MY_APP_HOME,pageView)))
+    """
+    返回dashboard页面
+    :param request: 
+    :return: 
+    """
+    return render_mako_context(request, "/home_application／dashboard.html")
 
 """返回主机查询页面"""
 def queryHost(request):
