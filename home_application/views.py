@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
+from django.http import HttpResponse
 
 from common.mymako import render_mako_context,render_json
 from home_application.models import NgUser,NgTask
 from home_application.ng_task import ngTask,ngTask2
 from blueking.component.shortcuts import get_client_by_request
+
+def hello(request):
+    return HttpResponse("Hello world")
 
 def home(request):
     """

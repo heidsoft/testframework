@@ -12,4 +12,5 @@ urlpatterns = patterns('home_application.views',
     (r'^execute/job$', 'executeJob'),
     (r'^hosts$', 'getHosts'),
     (r'^jobs', 'getJobs'),
+    (r'^hello', 'hello'),
 )
