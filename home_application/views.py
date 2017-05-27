@@ -9,7 +9,14 @@ from blueking.component.shortcuts import get_client_by_request
 def hello(request):
     return HttpResponse("Hello world")
 
-def home(request):
+MY_APP_HOME = "/home_application／"
+
+"""返回API仪表盘页面"""
+def dashboard(request):
+    return render_mako_context(request, "".join(MY_APP_HOME,"dev_guide.html"))
+
+"""返回主机查询页面"""
+def queryHost(request):
     """
     首页
     """
@@ -39,7 +46,7 @@ def home(request):
 
     print result
 
-    return render_mako_context(request, '/home_application/test_magicbox.html',{"hosts":hosts,"tasks":tasks})
+    return render_mako_context(request, '/home_application/query_host.html',{"hosts":hosts,"tasks":tasks})
 
 
 def dev_guide(request):
