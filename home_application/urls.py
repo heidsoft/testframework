@@ -4,8 +4,11 @@ from django.conf.urls import patterns
 
 urlpatterns = patterns('home_application.views',
                         (r'^dashboard$','dashboard'),
-                        (r'^$', 'hello'),
+                        (r'^hello$','hello'),
+                        (r'^$', 'index'),
                         (r'^queryHost', 'queryHost'),
+                        (r'^grid$', 'grid'),
+                        (r'^forms$', 'forms'),
                         (r'^dev-guide/$', 'dev_guide'),
                         (r'^contactus/$', 'contactus'),
                         (r'^useradd', 'useradd'),

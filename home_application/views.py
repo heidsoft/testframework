@@ -6,10 +6,22 @@ from home_application.models import NgUser,NgTask
 from home_application.ng_task import ngTask,ngTask2
 from blueking.component.shortcuts import get_client_by_request
 
+MY_APP_HOME = "/home_application／"
+
 def hello(request):
     return HttpResponse("Hello world")
 
-MY_APP_HOME = "/home_application／"
+def index(request):
+    return render_mako_context(request, "/home_application/index.html",{"template_name":"dashboard.html"})
+
+"""表格"""
+def grid(request):
+    return render_mako_context(request, "/home_application/tables.html")
+
+"""表单"""
+def forms(request):
+    return render_mako_context(request, "/home_application/forms.html")
+
 
 """返回API仪表盘页面"""
 def dashboard(request):
