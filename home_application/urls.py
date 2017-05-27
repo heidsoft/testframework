@@ -3,8 +3,8 @@
 from django.conf.urls import patterns
 
 urlpatterns = patterns('home_application.views',
-                        (r'^$', 'dashboard'),
-                        (r'^hello', 'hello'),
+                        (r'^dashboard$','dashboard'),
+                        (r'^$', 'hello'),
                         (r'^queryHost', 'queryHost'),
                         (r'^dev-guide/$', 'dev_guide'),
                         (r'^contactus/$', 'contactus'),
