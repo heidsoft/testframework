@@ -9,6 +9,10 @@ urlpatterns = patterns(
     url(r'^$', "home_application.overview.views.home"),
     url(r'^overview/', include('home_application.overview.urls')),
     url(r'^qcloud/', include('home_application.qcloud.urls')),
+    url(r'^vmware/', include('home_application.vmware.urls')),
+    url(r'^ucloud/', include('home_application.ucloud.urls')),
+    url(r'^aws/', include('home_application.aws.urls')),
+    url(r'^aliyun/', include('home_application.aliyun.urls')),
     # (r'^dashboard$','dashboard'),
     # (r'^hello$','hello'),
 
