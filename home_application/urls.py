@@ -13,6 +13,7 @@ urlpatterns = patterns(
     url(r'^ucloud/', include('home_application.ucloud.urls')),
     url(r'^aws/', include('home_application.aws.urls')),
     url(r'^aliyun/', include('home_application.aliyun.urls')),
+    url(r'^event/', include('home_application.event.urls')),
     # (r'^dashboard$','dashboard'),
     # (r'^hello$','hello'),
 
